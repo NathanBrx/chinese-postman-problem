@@ -86,9 +86,20 @@ int main(int argc, char * argv[])
 		list<int> s = sol.first;
 
         //Print edges in the solution
-		cout << "Solution:" << endl;
+		ofstream outfile("../media/results.txt");
+		if (outfile.is_open()) {
+			for (std::list<int>::iterator it = s.begin(); it != s.end(); it++) {
+				outfile << *it << " ";
+			}
+			outfile << std::endl;
+			outfile.close();
+		} else {
+			std::cerr << "Unable to open file";
+		}
+		/*
 		for(list<int>::iterator it = s.begin(); it != s.end(); it++)
 			cout << *it << " ";
+		*/
 		cout << endl;
 	}
 	catch(const char * msg)

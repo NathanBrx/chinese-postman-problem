@@ -15,4 +15,5 @@ Example.o: Example.cpp Dijkstra.h ./Minimum-Cost-Perfect-Matching/Matching.h ./M
 
 chinese: Matching.o BinaryHeap.o Graph.o Example.o 
 	g++ $(FLAG) Matching.o BinaryHeap.o Graph.o Example.o -o chinese
-
+clean:
+	rm -f *.o chinese
