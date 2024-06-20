@@ -4,7 +4,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <filesystem>
 using namespace std;
+namespace fs = std::filesystem;
 
 pair< Graph, vector<double> > ReadWeightedGraph(string filename)
 {
@@ -86,7 +88,7 @@ int main(int argc, char * argv[])
 		list<int> s = sol.first;
 
         //Print edges in the solution
-		ofstream outfile("../media/results.txt");
+		ofstream outfile(fs::current_path().string() + "/media/results.txt");
 		if (outfile.is_open()) {
 			for (std::list<int>::iterator it = s.begin(); it != s.end(); it++) {
 				outfile << *it << " ";
